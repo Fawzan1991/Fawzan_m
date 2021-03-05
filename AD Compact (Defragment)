@@ -1,0 +1,34 @@
+NTDS.dit Maintenance
+====================
+cmd
+
+  Net stop ntds /y
+
+   ntdsutil 
+   activate instance ntds
+   files
+   compact to c:\compact
+
+Now Replace old ntds.dit by New one 
+& Delete any *.log File from NTDS
+
+you can Use cmd
+
+   copy c:\compact\ntds.dit c:\windows\ntds\ntds.dit
+   del c:\windows\ntds\*.log
+
+You Can Check New ntds.dit
+
+cmd
+
+  ntdsutil 
+  activate instance ntds
+  files
+  integrity
+
+Now Start NTDS Service Again
+
+cmd
+
+  Net start ntds /y
+==========================================================================
